@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { useAuthContext } from '../../contexts/AuthContext';
+import './Header.css';
 
 const Header = () => {
     const { user } = useAuthContext();
@@ -9,7 +10,7 @@ const Header = () => {
         <header>
             <h1>
                 <Link className="home" to="/">
-                    PostsPlay
+                    Shoes Fiesta
                 </Link>
             </h1>
             <nav>

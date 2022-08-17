@@ -19,13 +19,14 @@ import Author from "./components/Author/Author";
 import MyPosts from "./components/MyPosts/MyPosts";
 import Footer from "./components/Footer/Footer";
 
+import './style.css'
 const Register = lazy(() => import('./components/Register/Register'));
   
 function App() {
 
     return (
         <AuthProvider>
-            <div id="box">
+            <div id="blog-outer">
                 <Header />
 
                 {/* Main Content */}
@@ -50,9 +51,7 @@ function App() {
                             <Route element={<PrivateRoute />}>
                                 <Route path="/my-posts" element={<MyPosts />} />
                             </Route>
-                            <Route element={<PrivateRoute />}>
                             <Route path="/blog/:postId/author" element={<Author />} />
-                            </Route>
                             <Route element={<PrivateRoute />}>
                                 <Route path="/logout" element={<Logout />} />
                             </Route>

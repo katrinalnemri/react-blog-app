@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom';
 
 const SinglePost = ({ post }) => {
     return (
-        <div className="allPosts">
-            <div className="allPosts-info">
+        <article className="post">
+            <div className="post-inner">
                 <img src={post.imageUrl} />
-                <h6>{post.category}</h6>
-                <h2>{post.title}</h2>
-
-                <Link to={`/blog/${post._id}`} className="details-button">
-                    Details
+                <h3>Designer: {post.designer}</h3>
+                <p>Category: {post.brand}</p>
+                <Link to={`/blog/${post._id}`} className="read-more">
+                    Read more
                 </Link>
             </div>
 
-        </div>
+        </article>
     );
 };
 
