@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { PostProvider } from './contexts/PostContext';
 
-import PrivateRoute from "./components/guards/PrivateRoute";
-import PostOwner from "./components/guards/PostOwner";
+import PrivateRoute from "./guards/PrivateRoute";
+import PostOwner from "./guards/PostOwner";
 
 import Header from './components/Header/Header';
 import Home from './components/Home';

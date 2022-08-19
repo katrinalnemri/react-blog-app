@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Outlet, useParams, Navigate } from "react-router-dom";
 
-import { useAuthContext } from "../../contexts/AuthContext";
-import { PostContext } from "../../contexts/PostContext";
+import { useAuthContext } from "../contexts/AuthContext";
+import { PostContext } from "../contexts/PostContext";
 
 const PostOwner = ({ children }) => {
     const { selectPost } = useContext(PostContext);
