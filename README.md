@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a blog simple page application.
+In this project is used the SoftUni practice server. 
 
-## Available Scripts
+## Technologies
 
-In the project directory, you can run:
+ - HTML,
+ - CSS 
+ - React
+ - JavaScript
 
-### `npm start`
+ ## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ ### Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ - To install the required dependencies use the "npm" package manager - npm i
+ - To run the project use the "npm" package manager - npm start
 
-### `npm test`
+ ### Server
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ - Go to the server folder - cd .\server\
+ - To start the server - node .\server.js
 
-### `npm run build`
+ ### Note :
+ Note: the application will be launched on a local server - http://localhost:3000/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Homepage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A custom homepage with image boxes connected to different pages.
 
-### `npm run eject`
+### Blog
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Renders a list of the existing blog posts
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Auth
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Login, Register and Logout. 
+Logout sends a request to the server to logout the user and then redirects the user to the homepage. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Create
 
-## Learn More
+A page where the user (only logged in users) can create a new post.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Edit
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Similar to the Create component but instead all fields are filled with the post's relevant values and updates them. This action can be done only by the author of the particular post!
 
-### Code Splitting
+### Delete
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This component does NOT render anything. This action can be done only by the author of the particular post!
 
-### Analyzing the Bundle Size
+### Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This components renders only the posts added by the current user.
 
-### Making a Progressive Web App
+### Details 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Renders all the details for the selected post.
 
-### Advanced Configuration
+### Footer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Renders the footer of the application.
 
-### Deployment
+### Header
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Renders the header of the application and the navigation menu. 
 
-### `npm run build` fails to minify
+#### Navigation menu
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Navgation menus that render, depending on if the user is logged in or logged out.
+

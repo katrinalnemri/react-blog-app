@@ -24,7 +24,7 @@ const authorPosts = ownerPosts(ownerId);
 console.log(authorPosts)
 return (
     <section id="blog-page">
-        <h1>My Posts</h1>
+        <h1><span>My Posts</span></h1>
 
         {authorPosts.length > 0
             ? authorPosts.map(x => <SinglePost key={x._id} post={x} />)
