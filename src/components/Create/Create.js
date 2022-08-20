@@ -3,6 +3,8 @@ import { useContext } from 'react';
 import { PostContext } from '../../contexts/PostContext';
 import * as postService from '../../services/postService';
 
+import './Create.css';
+
 const CreatePost = () => {
     const { postAdd } = useContext(PostContext);
 
@@ -22,27 +24,26 @@ const CreatePost = () => {
             <form id="create" onSubmit={onSubmit}>
                 <div className="container">
                     <h1>Create Post</h1>
-                    <label htmlFor="leg-title">Legendary title:</label>
+                    <label htmlFor="designer">Designer:</label>
                     <input
                         type="text"
-                        id="title"
-                        name="title"
-                        placeholder="Enter post title..."
+                        id="designer"
+                        name="designer"
+                        placeholder="Designer..."
                     />
-                    <label htmlFor="category">Category:</label>
+                    <label htmlFor="brand">Brand:</label>
                     <input
                         type="text"
-                        id="category"
-                        name="category"
-                        placeholder="Enter post category..."
+                        id="brand"
+                        name="brand"
+                        placeholder="Enter brand here..."
                     />
-                    <label htmlFor="levels">MaxLevel:</label>
+                    <label htmlFor="year">Release year:</label>
                     <input
-                        type="number"
-                        id="maxLevel"
-                        name="maxLevel"
-                        min={1}
-                        placeholder={1}
+                        type="text"
+                        id="year"
+                        name="year"
+                        placeholder="Enter release year here..."
                     />
 
                     <label htmlFor="post-img">Image:</label>
@@ -54,9 +55,15 @@ const CreatePost = () => {
                         placeholder="Upload a photo..."
                     />
 
-                    <label htmlFor="summary">Summary:</label>
+<label htmlFor="model">Model:</label>
 
-                    <textarea name="summary" id="summary" defaultValue={""} />
+<input
+    type="text"
+    id="model"
+    name="model"
+    placeholder="Enter model here..."
+/>
+<br/>
 
                     <input
                         className="btn submit"

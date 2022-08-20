@@ -1,0 +1,19 @@
+#post-details .post-inner{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#post-details{
+    width:80%;
+    margin:30px auto;
+}
+#post-details h1{
+    text-align:center;
+}
+#post-details .post-img-holder{
+    width:500px;
+    max-width:100%;
+}
+#post-details .post-details{
+    margin-left:20px;
+}

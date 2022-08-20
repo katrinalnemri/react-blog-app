@@ -13,7 +13,10 @@ const Blog = () => {
             <h1><span>Latest Posts</span></h1>
 <div className="blog-posts">
             {posts.length > 0
-                ? posts.map(x => <SinglePost key={x._id} post={x} />)
+                ? posts.map(x => 
+                <SinglePost key={x._id} post={x} />
+            
+                )
                 : <h3 className="no-articles">No articles yet</h3>
             }
             </div>

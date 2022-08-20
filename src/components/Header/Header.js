@@ -14,7 +14,7 @@ const Header = () => {
                 </Link>
             </h1>
             <nav>
-                {user.email && <span>{user.email}</span>}
+                {user.email && <span>Hello {user.email}</span>}
                 <Link to="/blog">Blog</Link>
                 {user.email
                     ? <div id="user">

@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
 body{
     overflow-x:hidden;
     max-width:100%;
     height:100%;
     margin:0;
     padding:0;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-weight:normal;
-    font-size:17px;
+    font-size:15px;
     line-height:1.6;
 }
 
@@ -20,6 +23,7 @@ a img{
 
 a{
     text-decoration: none;
+    color: #b5a061;
 }
 
 .small{
@@ -28,4 +32,16 @@ a{
 
 .big{
     font-size:120%;
+}
+
+h1,
+h2,
+h3{
+    font-family: 'Playfair Display',serif;
+    font-weight: 400;
+}
+
+#main-content{
+    width:95%;
+    margin:0 auto;
 }

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import * as authService from "../../services/authService";
 
+import './Login.css';
+
 const Login = () => {
     const { userLogin } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -19,7 +21,7 @@ const Login = () => {
         authService.login(email, password)
             .then(authData => {
                 userLogin(authData);
-                navigate('/');
+                navigate('/my-posts');
             })
             .catch(() => {
                 navigate('/404');
@@ -27,11 +29,14 @@ const Login = () => {
     };
 
     return (
+         
         <section id="login-page" className="auth">
+            <div className="login-heading">
+            <h1>Welcome dear user!</h1>
+            <p>Please use your email &amp; password in the form below to sign in.<br/> Happy blogging!</p>
+            </div>
             <form id="login" onSubmit={onSubmit}>
                 <div className="container">
-                    <div className="brand-logo" />
-                    <h1>Login</h1>
                     <label htmlFor="email">Email:</label>
                     <input
                         type="email"
@@ -40,15 +45,16 @@ const Login = () => {
                         placeholder="Sokka@gmail.com"
                     />
                     <label htmlFor="login-pass">Password:</label>
-                    <input type="password" id="login-password" name="password" />
+                    <input type="password" id="login-password" name="password" /><br/>
                     <input type="submit" className="btn submit" value="Login" />
-                    <p className="field">
+                  
+                </div>
+            </form>
+            <p className="field">
                         <span>
                             If you don't have profile click <a href="/register">here</a>
                         </span>
                     </p>
-                </div>
-            </form>
         </section>
     );
 }

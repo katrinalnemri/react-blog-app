@@ -16,7 +16,7 @@ const postReducer = (state, action) => {
             return state.map(x => x._id === action.postId ? action.payload : x);
         case 'ADD_COMMENT':
             return state.map(x => x._id === action.postId ? { ...x, comments: [...x.comments, action.payload] } : x);
-        case 'REMOVE_POST':
+            case 'REMOVE_POST':
             return state.filter(x => x._id !== action.postId);
         default:
             return state;

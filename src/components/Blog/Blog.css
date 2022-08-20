@@ -46,3 +46,7 @@ article img{
     display: inline-block;
     margin-top:15px;
 }
+
+.blog-posts article h3.post-title{
+    font-size:21px;
+}

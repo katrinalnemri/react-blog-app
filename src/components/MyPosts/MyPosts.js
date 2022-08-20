@@ -23,13 +23,14 @@ const authorPosts = ownerPosts(ownerId);
 
 console.log(authorPosts)
 return (
-    <section id="blog-page">
+    <section id="blog-view">
         <h1><span>My Posts</span></h1>
-
+<div className="blog-posts">
         {authorPosts.length > 0
             ? authorPosts.map(x => <SinglePost key={x._id} post={x} />)
             : <h3 className="no-articles">No articles yet</h3>
         }
+        </div>
     </section>
 )
 

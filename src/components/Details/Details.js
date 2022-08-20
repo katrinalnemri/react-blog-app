@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { PostContext } from '../../contexts/PostContext';
 import { useAuthContext } from '../../contexts/AuthContext';
+import './Details.css';
 
 import * as postService from '../../services/postService';
 import * as commentService from '../../services/commentService';
@@ -14,18 +15,19 @@ const PostDetails = () => {
 
     const currentPost = selectPost(postId);
 
-    const isOwner = currentPost._ownerId === user._id;
+    const isOwner = currentPost._ownerId === user._id; 
 
     useEffect(() => {
+        
         (async () => {
             const postDetails = await postService.getOne(postId);
-            console.log(postDetails);
             const postComments = await commentService.getByPostId(postId);
 
-            fetchPostDetails(postId, { ...postDetails, comments: postComments.map(x => `${x.user.email}: ${x.text}`) });
+            fetchPostDetails(postId, { ...postDetails, comments: postComments.map(x => `${x.user.email}: ${x.text}`)});
 
         })();
     }, [])
+
 
     const addCommentHandler = (e) => {
         e.preventDefault();
@@ -54,31 +56,17 @@ const PostDetails = () => {
     return (
         <section id="post-details">
             <h1>Post Details</h1>
-            <div className="info-section">
-                <div className="post-header">
+            <div className="post-section">
+                <div className='post-inner'>
+                <div className="post-img-holder">
                     <img className="post-img" src={currentPost.imageUrl} />
-                    <h1>{currentPost.title}</h1>
-                    <span className="levels">MaxLevel: {currentPost.maxLevel}</span>
-                    <p className="type">{currentPost.category}</p>
-                </div>
-                <p className="text">
-                    {currentPost.summary}
-                </p>
-
-                <div className="details-comments">
-                    <h2>Comments:</h2>
-                    <ul>
-                        {currentPost.comments?.map(x =>
-                            <li key={x} className="comment">
-                                <p>{x}</p>
-                            </li>
-                        )}
-                    </ul>
-
-                    {!currentPost.comments &&
-                        <p className="no-comment">No comments.</p>
-                    }
-                </div>
+                    </div>
+                    <div className='post-details'>
+                    <h2>{currentPost.designer}</h2>
+                    <p className="brand">Brand: {currentPost.brand}</p>
+                    <p className="model">Model: {currentPost.model}</p>
+                    <p className="model">Year: {currentPost.release}</p>
+                    <div className='post-footer'>
                 {isOwner &&
                     <div className="buttons">
                         <Link to={`/blog/${postId}/edit`} className="button">
@@ -93,9 +81,26 @@ const PostDetails = () => {
                 <Link to={`/blog/${postId}/author`} className="button">
                             Author
                         </Link>
+                        <div>
+    
+      </div>
+                        </div>
+                </div>
+                </div>
+              
             </div>
+            <div className="post-comments">
+                    {currentPost.comments && currentPost.comments.length > 0 ? <h2>Comments:</h2> : "No comments!"}
+                    <ul>
+                        {currentPost.comments?.map(x =>
+                            <li key={x} className="comment">
+                                <p>{x}</p>
+                            </li>
+                        )}
+                    </ul>
 
-            <article className="create-comment">
+                </div>
+            <div className="create-comment">
                 <label>Add new comment:</label>
                 <form className="form" onSubmit={addCommentHandler}>
                     <textarea
@@ -109,7 +114,7 @@ const PostDetails = () => {
                         value="Add Comment"
                     />
                 </form>
-            </article>
+            </div>
         </section>
     );
 };
