@@ -1,4 +1,4 @@
-#blog-view .blog-posts{
+#author-view .blog-posts{
     display:flex;
     justify-content: center;
     align-items: flex-start;
@@ -6,14 +6,14 @@
     margin:50px auto;
 }
 
-#blog-view article{
+#author-view article{
     max-width:31.33%;
     margin: 0 1%;
     position: relative;
     text-align:center;
 }
 
-#blog-view article img{
+#author-view article img{
     width:300px;
     height:300px;
     max-width:100%;
@@ -22,7 +22,7 @@
     margin:0 auto;
 }
 
-#blog-view h1{
+#author-view h1{
     text-align:center;
     font-weight:400;
     text-transform: uppercase;
@@ -31,12 +31,12 @@
     margin-bottom:0;
 }
 
-#blog-view h1 span{
+#author-view h1 span{
     border-bottom:2px solid ;
     padding-bottom:4px;
 }
 
-#blog-view .blog-posts article a.read-more{
+#author-view .blog-posts article a.read-more{
     padding:10px 15px;
     font-size:12px;
     text-transform: uppercase;
@@ -47,6 +47,10 @@
     margin-top:15px;
 }
 
-#blog-view .blog-posts article h3.post-title{
+#author-view .blog-posts article h3.post-title{
     font-size:21px;
+}
+
+.no-articles{
+    margin-top:40px;
 }

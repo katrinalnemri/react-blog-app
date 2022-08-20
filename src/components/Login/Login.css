@@ -31,7 +31,8 @@
 
 #login input[type="submit"]{
     padding:10px 15px;
-    background:#f3f3f3;
+    background:#76BA99;
+    color:#fff;
     cursor:pointer;
     display:inline-block;
     width:auto;
@@ -45,4 +46,9 @@
 p.field{
     text-align:center;
     margin:30px 0;
+}
+p.field span{
+    font-weight: bold;
+    border-bottom:3px solid #76BA99;
+    padding-bottom:2px;
 }

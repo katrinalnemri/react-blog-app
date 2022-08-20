@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import './Footer.css';
+
 const creditsyear = `All rights reserved! ${new Date().getFullYear()}`;
 const Footer = () => {
 return(

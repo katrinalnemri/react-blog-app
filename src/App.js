@@ -20,6 +20,7 @@ import MyPosts from "./components/MyPosts/MyPosts";
 import Footer from "./components/Footer/Footer";
 
 import './style.css'
+import LoggedRoute from "./guards/LoggedRoute";
 const Register = lazy(() => import('./components/Register/Register'));
   
 function App() {
@@ -34,18 +35,23 @@ function App() {
                     <main id="main-content">
                         <Routes>
                             <Route path="/" element={<Home />} />
+                            <Route element={<LoggedRoute/>}>
                             <Route path="/login" element={<Login />} />
+                            </Route>
+                            <Route element={<LoggedRoute/>}>
                             <Route path="/register" element={
                                 <Suspense fallback={<span>Loading....</span>}>
                                     <Register />
                                 </Suspense>
                             } />
+                            </Route>
                             <Route path="/create" element={(
                                 <PrivateRoute>
                                     <Create />
                                 </PrivateRoute>
                             )} />
-                            <Route element={<PostOwner />}>
+
+                            <Route element={<PostOwner /> && <PrivateRoute/>}>
                                 <Route path="/blog/:postId/edit" element={<Edit />} />
                             </Route>
                             <Route element={<PrivateRoute />}>

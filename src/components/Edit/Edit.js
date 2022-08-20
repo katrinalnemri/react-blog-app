@@ -4,6 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import * as postService from '../../services/postService';
 import { PostContext } from "../../contexts/PostContext";
 
+import './Edit.css';
+
 const EditPost = () => {
     const [currentPost, setCurrentPost] = useState({});
     const { postEdit } = useContext(PostContext);
@@ -34,23 +36,52 @@ const EditPost = () => {
             <form id="edit" onSubmit={onSubmit}>
                 <div className="container">
                     <h1>Edit Post</h1>
-                    <label htmlFor="leg-title">Legendary title:</label>
-                    <input type="text" id="title" name="title" defaultValue={currentPost.title} />
-                    <label htmlFor="category">Category:</label>
-                    <input type="text" id="category" name="category" defaultValue={currentPost.category} />
-                    <label htmlFor="levels">MaxLevel:</label>
+                    <label htmlFor="designer">Designer:</label>
                     <input
-                        type="number"
-                        id="maxLevel"
-                        name="maxLevel"
-                        min={1}
-                        defaultValue={currentPost.maxLevel}
+                        type="text"
+                        id="designer"
+                        name="designer"
+                        defaultValue={currentPost.designer}
                     />
+                    <label htmlFor="brand">Brand:</label>
+                    <input
+                        type="text"
+                        id="brand"
+                        name="brand"
+                        defaultValue={currentPost.brand}
+                    />
+                    <label htmlFor="year">Release year:</label>
+                    <input
+                        type="text"
+                        id="year"
+                        name="year"
+                        defaultValue={currentPost.release}
+                    />
+
                     <label htmlFor="post-img">Image:</label>
-                    <input type="text" id="imageUrl" name="imageUrl" defaultValue={currentPost.imageUrl} />
-                    <label htmlFor="summary">Summary:</label>
-                    <textarea name="summary" id="summary" defaultValue={currentPost.summary} />
-                    <input className="btn submit" type="submit" defaultValue="Edit Post" />
+
+                    <input
+                        type="text"
+                        id="imageUrl"
+                        name="imageUrl"
+                        defaultValue={currentPost.imageUrl}
+                    />
+
+<label htmlFor="model">Model:</label>
+
+<input
+    type="text"
+    id="model"
+    name="model"
+    defaultValue={currentPost.model}
+/>
+<br/>
+
+                    <input
+                        className="btn submit"
+                        type="submit"
+                        defaultValue={"Submit changes"}
+                    />
                 </div>
             </form>
         </section>

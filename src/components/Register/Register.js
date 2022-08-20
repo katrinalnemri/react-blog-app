@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import * as authService from "../../services/authService";
 import { withAuth } from "../../contexts/AuthContext";
@@ -17,14 +17,22 @@ const Register = ({ auth }) => {
         const password = formData.get('password');
         const confirmPassword = formData.get('confirm-password');
 
-        if (password !== confirmPassword) {
-            return;
+        if(email == '' || password == '' || confirmPassword == ''){
+            return alert("All fields are required!")
+        }else{
+            if (password !== confirmPassword) {
+                return alert("Paswords don't match!");
+            }
         }
 
         authService.register(email, password)
             .then(authData => {
+                if (authData.accessToken) {
                 auth.userLogin(authData);
                 navigate('/blog');
+                }else{
+
+                }
             });
     }
 
@@ -48,14 +56,14 @@ const Register = ({ auth }) => {
                     <input type="password" name="password" id="register-password" />
 
                     <label htmlFor="confirm-pass">Confirm Password:</label>
-                    <input type="password" name="confirm-password" id="confirm-password" /><br/>
-
+                    <input type="password" name="confirm-password" id="confirm-password" />
+                    <br/>
                     <input className="btn submit" type="submit" defaultValue="Register" />
                 </div>
             </form>
             <p className="field">
                         <span>
-                            If you already have profile click <a href="/login">here</a>
+                            If you already have profile click <Link to="/login">here</Link>
                         </span>
                     </p>
         </section>

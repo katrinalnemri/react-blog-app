@@ -23,7 +23,7 @@ const PostDetails = () => {
             const postDetails = await postService.getOne(postId);
             const postComments = await commentService.getByPostId(postId);
 
-            fetchPostDetails(postId, { ...postDetails, comments: postComments.map(x => `${x.user.email}: ${x.text}`)});
+            fetchPostDetails(postId, { ...postDetails, comments: postComments});
 
         })();
     }, [])
@@ -39,6 +39,8 @@ const PostDetails = () => {
             .then(result => {
                 addComment(postId, comment);
             });
+
+            document.querySelector('.create-comment textarea').value = ''
     };
 
     const postDeleteHandler = () => {
@@ -78,8 +80,8 @@ const PostDetails = () => {
                         </button>
                     </div>
                 }
-                <Link to={`/blog/${postId}/author`} className="button">
-                            Author
+                <Link to={`/blog/${postId}/author`} className="author-button">
+                            See all posts from this Author
                         </Link>
                         <div>
     
@@ -89,31 +91,53 @@ const PostDetails = () => {
                 </div>
               
             </div>
+            <div className='comments'>
             <div className="post-comments">
-                    {currentPost.comments && currentPost.comments.length > 0 ? <h2>Comments:</h2> : "No comments!"}
+                
+                    {currentPost.comments && currentPost.comments.length > 0 ? <h1>Comments:</h1> 
+                    : <h1>No comments!</h1>}
                     <ul>
                         {currentPost.comments?.map(x =>
-                            <li key={x} className="comment">
-                                <p>{x}</p>
+                            <li key={x._id ? x._id : x} className="comment">
+                                <div className='comment-holder'>
+                                    {x.user ? 
+                                    <><h3 className='comment-author'>
+                                            {x.user.email} says:
+                                        </h3><p>{x.text}</p></>
+                                    : 
+                                    <p>{x}</p>
+}
+                                </div>
                             </li>
                         )}
                     </ul>
 
                 </div>
+              {user.email ? 
             <div className="create-comment">
-                <label>Add new comment:</label>
+                <h2>Add new comment:</h2>
                 <form className="form" onSubmit={addCommentHandler}>
                     <textarea
+                    cols='5'
+                    rows='7'
                         name="comment"
                         placeholder="Comment......"
                     />
-
+<br/>
                     <input
                         className="btn submit"
                         type="submit"
                         value="Add Comment"
                     />
                 </form>
+            </div>
+               : 
+<div className='button'>
+    <span>
+    <Link to='/login'>Login</Link> to post comments!
+    </span>
+    </div> }
+              
             </div>
         </section>
     );

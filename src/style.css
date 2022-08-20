@@ -43,5 +43,13 @@ h3{
 
 #main-content{
     width:95%;
-    margin:0 auto;
+    margin:50px auto;
+}
+
+.red{
+    color:red;
+}
+.center
+{
+    text-align:center
 }

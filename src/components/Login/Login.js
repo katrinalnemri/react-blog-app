@@ -1,5 +1,5 @@
 import { useContext} from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import * as authService from "../../services/authService";
@@ -18,13 +18,18 @@ const Login = () => {
             password,
         } = Object.fromEntries(new FormData(e.target));
 
+        if (email == '' || password == '') {
+           return alert("All fields are required!")
+        }
+
         authService.login(email, password)
             .then(authData => {
+                if (authData.accessToken) {
                 userLogin(authData);
                 navigate('/my-posts');
-            })
-            .catch(() => {
-                navigate('/404');
+                }else {
+                    return alert("Incorrect email or password!")
+                }
             });
     };
 
@@ -44,15 +49,18 @@ const Login = () => {
                         name="email"
                         placeholder="Sokka@gmail.com"
                     />
+                   
                     <label htmlFor="login-pass">Password:</label>
-                    <input type="password" id="login-password" name="password" /><br/>
+                    <input type="password" id="login-password" name="password" />
+                
+                    <br/>
                     <input type="submit" className="btn submit" value="Login" />
-                  
+                   
                 </div>
             </form>
             <p className="field">
                         <span>
-                            If you don't have profile click <a href="/register">here</a>
+                            If you don't have profile click <Link to="/register">here</Link>
                         </span>
                     </p>
         </section>
