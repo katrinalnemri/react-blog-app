@@ -18,6 +18,7 @@ import Details from "./components/Details/Details";
 import Author from "./components/Author/Author";
 import MyPosts from "./components/MyPosts/MyPosts";
 import Footer from "./components/Footer/Footer";
+import Error from "./components/Error/Error";
 
 import './style.css'
 import LoggedRoute from "./guards/LoggedRoute";
@@ -63,6 +64,7 @@ function App() {
                             </Route>
                             <Route path="/blog" element={<Blog />} />
                             <Route path="/blog/:postId" element={<Details />} />
+                            <Route path="*" element={<Error/>} />
                         </Routes>
                     </main>
                 </PostProvider>

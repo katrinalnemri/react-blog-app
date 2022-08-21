@@ -94,24 +94,20 @@ const PostDetails = () => {
             <div className='comments'>
             <div className="post-comments">
                 
-                    {currentPost.comments && currentPost.comments.length > 0 ? <h1>Comments:</h1> 
-                    : <h1>No comments!</h1>}
-                    <ul>
-                        {currentPost.comments?.map(x =>
-                            <li key={x._id ? x._id : x} className="comment">
-                                <div className='comment-holder'>
-                                    {x.user ? 
+                    {currentPost.comments && currentPost.comments.length > 0 ? <><h1>Comments:</h1><ul>
+                        {currentPost.comments.map(x => <li key={x._id ? x._id : x} className="comment">
+                            <div className='comment-holder'>
+                                {x.user ?
                                     <><h3 className='comment-author'>
-                                            {x.user.email} says:
-                                        </h3><p>{x.text}</p></>
-                                    : 
-                                    <p>{x}</p>
-}
-                                </div>
-                            </li>
+                                        {x.user.email} says:
+                                    </h3><p>{x.text}</p></>
+                                    :
+                                    <p>{x}</p>}
+                            </div>
+                        </li>
                         )}
-                    </ul>
-
+                    </ul></>
+: <h1>No comments!</h1>}
                 </div>
               {user.email ? 
             <div className="create-comment">
