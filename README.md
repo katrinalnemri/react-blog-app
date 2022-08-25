@@ -52,10 +52,11 @@ Similar to the Create component but instead all fields are filled with the post'
 ### Delete
 
 This component does NOT render anything. This action can be done only by the author of the particular post!
+Deletes the target element (post).
 
 ### Author
 
-This components renders only the posts added by the current user.
+This component renders only the posts added by the current user.
 
 ### Details 
 
