@@ -1,6 +1,6 @@
 # Description
 
-This is a simple blog SPA.
+This is a simple blog SPA, developed using React.
 In this project is used the SoftUni practice server. 
 
 ## Technologies
