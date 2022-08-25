@@ -1,6 +1,6 @@
 # Description
 
-This is a blog simple page application.
+This is a simple blog SPA.
 In this project is used the SoftUni practice server. 
 
 ## Technologies
